@@ -1,0 +1,10 @@
+from django.core.management import BaseCommand
+from datetime import datetime
+
+
+class Command(BaseCommand):
+    help = 'Displays current time'
+
+    def handle(self, *args, **kwargs):
+        current_time = datetime.today().strftime(f'Date: %Y-%m-%d Time: %H:%M:%S')
+        self.stdout.write(f'Current {current_time}')
